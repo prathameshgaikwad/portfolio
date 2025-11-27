@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
   </head>
   <body>
     <div class="noise-overlay"></div>
@@ -17,9 +18,9 @@
         <nav class="site-nav">
           <ul>
             <li><a href="#home" class="active"><span class="dot"></span>Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#work"><span class="dot"></span>Work</a></li>
+            <li><a href="#projects"><span class="dot"></span>Projects</a></li>
+            <li><a href="#contact"><span class="dot"></span>Contact</a></li>
           </ul>
         </nav>
       </header>
@@ -27,15 +28,15 @@
       <main class="hero-section">
         <div class="hero-content">
           <div class="intro-text">
-            <span class="square-icon">■</span>
-            <p>I'm a software engineer who strives to create frictionless user experiences that elevate brands.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square square-icon"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+            <p>I'm a software engineer who strives to create frictionless user experiences and products that impact lives.</p>
           </div>
         </div>
 
         <div class="hero-footer">
           <div class="location">
-            <span class="square-icon">■</span>
-            <p>Living, Playing, Dreaming and Crafting<br>in India.</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square square-icon"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+            <p>Dreaming and crafting in India.</p>
           </div>
           
           <div class="footer-right">
@@ -54,10 +55,12 @@
       </main>
       
       <div class="decorative-curves">
-        <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 600 C 200 500, 400 400, 800 300" stroke="white" stroke-width="0.5" stroke-opacity="0.5" />
-          <circle cx="600" cy="400" r="150" stroke="white" stroke-width="0.5" stroke-opacity="0.3" />
-          <path d="M400 600 Q 600 200 800 0" stroke="white" stroke-width="0.5" stroke-opacity="0.3" />
+        <svg viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Large left circular arc -->
+          <circle cx="100" cy="650" r="288" stroke="white" stroke-width="1.5" stroke-opacity="0.3" />
+          
+          <!-- Elegant sweeping curve on the right -->
+          <path d="M 600 0 Q 900 400 800 800" stroke="white" stroke-width="1.5" stroke-opacity="0.3" />
         </svg>
       </div>
       <div class="gradient-bg"></div>
