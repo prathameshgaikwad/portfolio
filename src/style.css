@@ -209,7 +209,6 @@ body {
   gap: var(--spacing-sm);
   color: #fff;
   font-size: 1rem;
-  align-self: flex-end;
 }
 
 .location .square-icon {

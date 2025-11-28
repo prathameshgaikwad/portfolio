@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import './style.css';
 
 function App() {
@@ -11,16 +12,69 @@ function App() {
     { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.6, 0.05, 0.01, 0.9],
+      },
+    },
+  };
+
+  const navItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (custom) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: custom * 0.1,
+        ease: [0.6, 0.05, 0.01, 0.9],
+      },
+    }),
+  };
+
   return (
     <>
       <div className="noise-overlay"></div>
       <div className="app-container">
-        <header className="site-header">
-          <div className="logo">Prathamesh</div>
+        <motion.header
+          className="site-header"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.div
+            className="logo"
+            variants={itemVariants}
+          >
+            Prathamesh
+          </motion.div>
           <nav className="site-nav">
             <ul>
-              {navItems.map((item) => (
-                <li key={item.id}>
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={item.id}
+                  custom={index}
+                  initial="hidden"
+                  animate="visible"
+                  variants={navItemVariants}
+                >
                   <a
                     href={item.href}
                     className={activeNav === item.id ? 'active' : ''}
@@ -29,14 +83,23 @@ function App() {
                     <span className="dot"></span>
                     {item.label}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </nav>
-        </header>
+        </motion.header>
 
         <main className="hero-section">
-          <div className="hero-content">
+          <motion.div
+            className="hero-content"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.5,
+              ease: [0.6, 0.05, 0.01, 0.9],
+            }}
+          >
             <div className="intro-text">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,9 +120,18 @@ function App() {
                 experiences and products that impact lives.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="hero-footer">
+          <motion.div
+            className="hero-footer"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.7,
+              ease: [0.6, 0.05, 0.01, 0.9],
+            }}
+          >
             <div className="location">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -80,17 +152,26 @@ function App() {
 
             <div className="footer-right">
               <div className="cta-buttons">
-                <button className="contact-btn">Contact</button>
-                <a
+                <motion.button
+                  className="contact-btn"
+                >
+                  Contact
+                </motion.button>
+                <motion.a
                   href="/resume.pdf"
                   download
                   className="scroll-btn"
                   title="Download Resume"
                 >
                   ↓
-                </a>
+                </motion.a>
               </div>
-              <div className="contact-info">
+              <motion.div
+                className="contact-info"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
                 <a href="mailto:prathameshg461@gmail.com" className="email-link">
                   prathameshg461@gmail.com
                   <svg
@@ -107,9 +188,9 @@ function App() {
                     <polyline points="7 7 17 7 17 17"></polyline>
                   </svg>
                 </a>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </main>
 
         <div className="decorative-curves">
